@@ -62,16 +62,12 @@ teamwork::pull_request_review_submitted() {
   local -r comment=$(github::get_review_comment)
 
   teamwork::add_comment "
-  **$user** submited a review to the PR: **$pr_title**
+  **$user** submitted a review to the PR: **$pr_title**
   [$pr_url]($pr_url)
   ---
   Review: **$review_state**
   Comment: **$comment**
   "
-}
-
-teamwork::pull_request_review_edited() {
-  teamwork::add_comment "Review edited"
 }
 
 teamwork::pull_request_review_dismissed() {
