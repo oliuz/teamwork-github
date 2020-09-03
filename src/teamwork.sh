@@ -60,8 +60,7 @@ teamwork::pull_request_review_submitted() {
   local -r pr_title=$(github::get_pr_title)
   local -r review_state=$(github::get_review_state)
   local -r comment=$(github::get_review_comment)
-
-  $pr_comment = ""
+  local -r pr_comment = ""
 
   # Only add the comment if is not null
   if [ "$comment" != null ]; then
