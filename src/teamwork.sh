@@ -61,11 +61,11 @@ teamwork::pull_request_review_submitted() {
   local -r review_state=$(github::get_review_state)
   local -r comment=$(github::get_review_comment)
 
+  $pr_comment = ""
+
   # Only add the comment if is not null
   if [ "$comment" != null ]; then
     $pr_comment = "Comment: **$comment**"
-  else 
-    $pr_comment = ""
   fi
 
   # Only add a message if the PR has been approved
