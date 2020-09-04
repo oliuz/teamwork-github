@@ -64,12 +64,12 @@ teamwork::pull_request_review_submitted() {
   # Only add a message if the PR has been approved
   if [ "$review_state" == "approved" ]; then
     teamwork::add_comment "
-    **$user** submitted a review to the PR: **$pr_title**  
-    [$pr_url]($pr_url)  
-    ---  
-    Review: **$review_state**  
-    $comment
-    "
+**$user** submitted a review to the PR: **$pr_title**  
+[$pr_url]($pr_url)  
+---  
+Review: **$review_state**  
+$comment
+"
   fi
 }
 
