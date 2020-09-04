@@ -60,21 +60,15 @@ teamwork::pull_request_review_submitted() {
   local -r pr_title=$(github::get_pr_title)
   local -r review_state=$(github::get_review_state)
   local -r comment=$(github::get_review_comment)
-  local pr_comment=""
-
-  # Only add the comment if is not null
-  if [ "$comment" != null ]; then
-    pr_comment="Comment: **$comment**"
-  fi
 
   # Only add a message if the PR has been approved
   if [ "$review_state" == "approved" ]; then
     teamwork::add_comment "
-    **$user** submitted a review to the PR: **$pr_title**
-    [$pr_url]($pr_url)
-    ---
-    Review: **$review_state**
-    $pr_comment
+    **$user** submitted a review to the PR: **$pr_title**  
+    [$pr_url]($pr_url)  
+    ---  
+    Review: **$review_state**  
+    $comment
     "
   fi
 }
